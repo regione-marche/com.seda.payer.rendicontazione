@@ -1,0 +1,3 @@
+include:
+  - project: maggiolispa/pagamenti/pipelines/common-ci-pagonet
+    file: /java-8.yml

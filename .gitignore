@@ -1,0 +1,10 @@
+/build/
+/target/*
+!target/*.war
+/home/
+/.settings/
+.classpath
+.project
+/bin/
+.log
+/Logs/
