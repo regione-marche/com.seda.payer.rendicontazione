@@ -201,6 +201,7 @@ public class RendicontaFlussi
 				LogUtility.writeLog("generaFlussiRend - vRetVal.addAll =" + resultBean.getSResult().size());
 				for (int i = 0; i < resultBean.getSResult().size(); i++)
 				{
+					try {
 					//inizio LP PG21X010
 					//if (proRendicontaEnte.inviaFlussoRend(resultBean.getSResult().get(i),"A", dbSchemaCodSocieta).contains("OK"))
 					String statoInvio = proRendicontaEnte.inviaFlussoRend(resultBean.getSResult().get(i),"A", dbSchemaCodSocieta);
@@ -255,15 +256,28 @@ public class RendicontaFlussi
 						}
 					}
 					//fine LP PG21X010 - 20210628
-					else
-					{
+					 else
+					 {
 						//logger.error("generaFlussiRend - Errore nell'invio del flusso con chiave = " +  resultBean.getSResult().get(i));
 				        LogUtility.writeLog("******************************************* fine RendicontaFlussi.Main::generaFlussiRend errore:  Errore nell'invio del flusso con chiave = " +  resultBean.getSResult().get(i)); //LP PG22XX10_LP2 - Log inizio e fine operazioni
 						//inizio LP PG21X010
 						messErr += "<BR>generaFlussiRend - Errore nell'invio del flusso con chiave = " +  resultBean.getSResult().get(i);
 						//fine LP PG21X010
 						bVal = false;
+					 }
+					
+				}catch(Exception ex)
+				    {
+						//inizio LP PG22XX10_LP2 - Log inizio e fine operazioni
+						//logger.error("Errore nella rendicontazione flussi: ",ex);
+				        LogUtility.writeLog("******************************************* fine RendicontaFlussi.Main::generaFlussiRend errore: " + ex.getMessage());
+						//fine LP PG22XX10_LP2 - Log inizio e fine operazioni
+						//inizio LP PG21X010
+						messErr += "<BR>generaFlussiRend - Errore nella rendicontazione flussi:<BR>    " + ex.getMessage();
+						//fine LP PG21X010
+						bVal = false;
 					}
+					
 				}
 			}
 			else
