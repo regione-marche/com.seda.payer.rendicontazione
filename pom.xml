@@ -97,7 +97,7 @@
 		<dependency>
 			<groupId>com.seda.payer.core</groupId>
 			<artifactId>com.seda.payer.core</artifactId>
-			<version>2.6.0</version>
+			<version>2.7.0</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -141,7 +141,7 @@
 		<dependency>
 			<groupId>com.seda.payer.pro.rendicontazione</groupId>
 			<artifactId>com.seda.payer.pro.rendicontazione</artifactId>
-			<version>2.1.0</version>
+			<version>2.3.0</version>
 			<scope>compile</scope>
 		</dependency>
 
