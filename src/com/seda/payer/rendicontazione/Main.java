@@ -104,6 +104,7 @@ public class Main {
 
         String dbDriver = datasourceConfig.getProperty("dbDriver." + this.codiceUtente);
         LogUtility.writeLog("dbDriver = " + dbDriver);
+        dbDriver = dbDriver.replaceAll("\\s+","");
         String dbUrl = datasourceConfig.getProperty("dbUrl." + this.codiceUtente);
         LogUtility.writeLog("dbUrl = " + dbUrl);
         String dbUser = datasourceConfig.getProperty("dbUser." + this.codiceUtente);
