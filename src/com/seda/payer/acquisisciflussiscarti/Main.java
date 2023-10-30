@@ -92,6 +92,7 @@ public class Main {
         datasourceConfig = PropertiesLoader.load(fileConfig);
 
         String dbDriver = datasourceConfig.getProperty("dbDriver." + this.codiceUtente);
+        dbDriver = dbDriver.replaceAll("\\s+","");
         String dbUrl = datasourceConfig.getProperty("dbUrl." + this.codiceUtente);
         String dbUser = datasourceConfig.getProperty("dbUser." + this.codiceUtente);
         String dbSchema = datasourceConfig.getProperty("dbSchema." + this.codiceUtente);
