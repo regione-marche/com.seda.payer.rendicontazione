@@ -8,6 +8,8 @@ import java.util.Date;
 
 import javax.sql.DataSource;
 
+import com.seda.payer.core.dao.FlussiRenDao;
+import com.seda.payer.pro.rendicontazione.exception.ProRendicontazioneException;
 import org.apache.log4j.Logger;
 
 import com.seda.commons.properties.tree.PropertiesTree;
@@ -279,6 +281,13 @@ public class RendicontaFlussi
 					}
 					
 				}
+				//Mettere qui nuovo aggiornamento transazioni
+				LogUtility.writeLog("aggiornaStatoRendComplex - inizio");
+				if(!aggiornaStatoRendComplex()){
+					LogUtility.writeLog("inviaFlussoRend - Errore in aggiornaStatoRend");
+				}else{
+					LogUtility.writeLog("inviaFlussoRend - aggiornaStatoRend ok");
+				}
 			}
 			else
 			{
@@ -459,5 +468,28 @@ public class RendicontaFlussi
 		return "";
 	}
 	//fine LP PG200070
+
+	private boolean aggiornaStatoRendComplex() throws ProRendicontazioneException
+	{
+		Connection connection = null;
+		try{
+			connection = getConnection();
+
+			FlussiRenDao frDao = new FlussiRenDao(connection, schema);
+
+			int numrighe = frDao.updateEsitoRendicontazioneComplex();
+			LogUtility.writeLog("aggiornaStatoRendComplex - righe aggiornate: " + numrighe);
+
+			if( numrighe==-1){
+				throw new Exception("aggiornaStatoRendComplex - Si è verificato un errrore durante l'aggiornamento dello stato della rendicontazione");
+			}else{
+				LogUtility.writeLog("aggiornaStatoRendComplex - Aggiornati " + numrighe + " record");
+				return true;
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 }
