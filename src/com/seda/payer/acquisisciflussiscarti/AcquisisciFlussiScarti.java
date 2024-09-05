@@ -161,6 +161,7 @@ public class AcquisisciFlussiScarti {
 	 * 
 	 * @see com.seda.payer.pgec.webservice.commons.source.CommonsInterface#elaboraFlussiScarti()
 	 */
+	@SuppressWarnings("rawtypes")
 	public boolean elaboraFlussiScarti() throws RemoteException {
 		LogUtility.writeLog("******************************************* inizio AcquisisciFlussiScarti::elaboraFlussiScarti"); //LP PG22XX10_LP2 - Log inizio e fine operazioni 
 		boolean elaborated = false;

@@ -10,7 +10,7 @@ public class ZipUtil {
 	  
 	  
 	    
-  @SuppressWarnings("unchecked")
+  @SuppressWarnings("rawtypes")
   public static ArrayList<File> unzipFile (File origFile, File destDir) throws ZipException, IOException {
 	  		 ArrayList<File> result =  new ArrayList<File>();
 	         BufferedOutputStream dest = null;

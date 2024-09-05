@@ -13,7 +13,6 @@ import com.seda.bap.components.core.BapException;
 import com.seda.bap.components.core.spi.ClassPrinting;
 import com.seda.bap.components.core.spi.PrintCodes;
 import com.seda.commons.properties.PropertiesLoader;
-import com.seda.payer.acquisisciflussiscarti.AcquisisciFlussiScartiCore;
 import com.seda.payer.rendicontazione.bap.RendicontazioneBapContext;
 import com.seda.payer.rendicontazione.bap.RendicontazioneBapResponse;
 import com.seda.payer.commons.utility.LogUtility;
@@ -90,7 +89,7 @@ public class RendicontazioneFlussiCore
 			e.printStackTrace();
 			printRow(PRINT_SYSOUT, "Elaborazione completata con errori " + e);
  			printRow(PRINT_SYSOUT, lineSeparator);
- 			response.setCode("30");	//TODO da verificare se mantenere 30 come per altri processi oppure impostare 12
+ 			response.setCode("30");	//Verificare se mantenere 30 come per altri processi oppure impostare 12
  			response.setMessage("Operazione terminata con errori ");
 			//inizio LP PG21X010
 			if(jobId.trim().length() == 0) {
@@ -112,7 +111,7 @@ public class RendicontazioneFlussiCore
 		w.append("" +"Rendicontazione Flussi "+ "\n");
 		w.append(System.getProperties().get("java.specification.vendor") + " ");
 		w.append(System.getProperties().get("java.version") + "\n");  
-		w.append("(C) Copyright 2022 Maggioli spa"  + "\n");
+		w.append("(C) Copyright 2024 Maggioli Spa"  + "\n");
 		w.append("\n");
 		LogUtility.writeLog(w.toString());
 		w=null;

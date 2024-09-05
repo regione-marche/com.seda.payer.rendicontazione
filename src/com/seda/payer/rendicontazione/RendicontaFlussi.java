@@ -10,7 +10,6 @@ import javax.sql.DataSource;
 
 import com.seda.payer.core.dao.FlussiRenDao;
 import com.seda.payer.pro.rendicontazione.exception.ProRendicontazioneException;
-import org.apache.log4j.Logger;
 
 import com.seda.commons.properties.tree.PropertiesTree;
 import com.seda.data.dao.DAOHelper;
