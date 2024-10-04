@@ -405,7 +405,7 @@ public class RendicontaFlussi
 		}
 		finally {
 			//closeConnection(connection);
-			DAOHelper.closeIgnoringException(connection);
+			DAOHelper.closeIgnoringExceptionBatch(connection); //LP 20241004 - PGNTREND-3
 		}
         LogUtility.writeLog("******************************************* fine RendicontaFlussi.Main::recuperaPgDaRend"); //LP PG22XX10_LP2 - Log inizio e fine operazioni
 		return pagDaRendDto;

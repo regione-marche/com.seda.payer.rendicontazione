@@ -110,7 +110,7 @@ public class UnisciFlussiCore  {
 		w.append("" +" Unisci Flussi "+ "\n");
 		w.append(System.getProperties().get("java.specification.vendor") + " ");
 		w.append(System.getProperties().get("java.version") + "\n");  
-		w.append("(C) Copyright 2021 di Maggioli spa"  + "\n");
+		w.append("(C) Copyright 2024 Maggioli spa"  + "\n");
 		w.append("\n");
 		LogUtility.writeLog(w.toString());
 		w=null;
