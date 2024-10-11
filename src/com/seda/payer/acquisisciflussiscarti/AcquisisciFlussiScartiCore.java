@@ -94,7 +94,7 @@ public class AcquisisciFlussiScartiCore  {
 		w.append("" +"Acquisisci Flussi-Scarti "+ "\n");
 		w.append(System.getProperties().get("java.specification.vendor") + " ");
 		w.append(System.getProperties().get("java.version") + "\n");  
-		w.append("(C) Copyright 2020 di Maggioli spa"  + "\n");
+		w.append("(C) Copyright 2024 Maggioli Spa"  + "\n");
 		w.append("\n");
 		LogUtility.writeLog(w.toString());
 		w=null;

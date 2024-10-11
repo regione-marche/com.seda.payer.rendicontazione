@@ -30,6 +30,7 @@ import com.seda.payer.unisciflussi.config.UnisciFlussiResponse;
 
 /** Avvio da riga comando della procedura.
  * Uso commons-cli-1.2 che è l'ultima versione funzionante su Java6 */
+@SuppressWarnings("deprecation")
 public class Main {
   String fileConfig;
   String codiceUtente;

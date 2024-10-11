@@ -22,6 +22,7 @@ public class RendicontazioneBapContext implements Serializable {
 
 	private Properties config;
 	
+	@SuppressWarnings("unused")
 	private Logger logger;
 	protected HashMap<String, List<String>> parameters = new HashMap<String, List<String>>();
 	

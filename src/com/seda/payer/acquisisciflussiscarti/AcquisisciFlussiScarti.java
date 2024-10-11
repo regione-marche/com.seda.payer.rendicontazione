@@ -161,6 +161,7 @@ public class AcquisisciFlussiScarti {
 	 * 
 	 * @see com.seda.payer.pgec.webservice.commons.source.CommonsInterface#elaboraFlussiScarti()
 	 */
+	@SuppressWarnings("rawtypes")
 	public boolean elaboraFlussiScarti() throws RemoteException {
 		LogUtility.writeLog("******************************************* inizio AcquisisciFlussiScarti::elaboraFlussiScarti"); //LP PG22XX10_LP2 - Log inizio e fine operazioni 
 		boolean elaborated = false;
@@ -406,7 +407,7 @@ public class AcquisisciFlussiScarti {
 			throw new Exception(ex);
 		} finally {
 			//connection.close();
-			DAOHelper.closeIgnoringException(connection);
+			DAOHelper.closeIgnoringExceptionBatch(connection); //LP 20241004 - PGNTREND-3
 		}	
 	}
 	
@@ -432,7 +433,7 @@ public class AcquisisciFlussiScarti {
 		}
 		finally {
 			//connection.close();
-			DAOHelper.closeIgnoringException(connection);
+			DAOHelper.closeIgnoringExceptionBatch(connection); //LP 20241004 - PGNTREND-3
 			LogUtility.writeLog("******************************************* fine AcquisisciFlussiScarti::savePagamentiScartati"); //LP PG22XX10_LP2 - Log inizio e fine operazioni 
 		}	
 	}
@@ -451,7 +452,7 @@ public class AcquisisciFlussiScarti {
 			LogUtility.writeLog("******************************************* fine AcquisisciFlussiScarti::removePagamentiScartati errore: " + ex.getMessage()); //LP PG22XX10_LP2 - Log inizio e fine operazioni 
 			throw new Exception(ex);
 		} finally {
-			DAOHelper.closeIgnoringException(connection);
+			DAOHelper.closeIgnoringExceptionBatch(connection); //LP 20241004 - PGNTREND-3
 			LogUtility.writeLog("******************************************* fine AcquisisciFlussiScarti::removePagamentiScartati"); //LP PG22XX10_LP2 - Log inizio e fine operazioni 
 		}	
 	}

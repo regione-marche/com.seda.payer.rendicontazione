@@ -10,7 +10,6 @@ import javax.sql.DataSource;
 
 import com.seda.payer.core.dao.FlussiRenDao;
 import com.seda.payer.pro.rendicontazione.exception.ProRendicontazioneException;
-import org.apache.log4j.Logger;
 
 import com.seda.commons.properties.tree.PropertiesTree;
 import com.seda.data.dao.DAOHelper;
@@ -406,7 +405,7 @@ public class RendicontaFlussi
 		}
 		finally {
 			//closeConnection(connection);
-			DAOHelper.closeIgnoringException(connection);
+			DAOHelper.closeIgnoringExceptionBatch(connection); //LP 20241004 - PGNTREND-3
 		}
         LogUtility.writeLog("******************************************* fine RendicontaFlussi.Main::recuperaPgDaRend"); //LP PG22XX10_LP2 - Log inizio e fine operazioni
 		return pagDaRendDto;
